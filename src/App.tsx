@@ -1,12 +1,11 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
-  Button,
+  Box,
   IconButton,
   MenuItem,
   Toolbar,
   Typography,
-  Box,
 } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import React, { SyntheticEvent, useState } from "react";
