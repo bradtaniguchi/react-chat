@@ -1,14 +1,23 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
+import "./index.css";
+import { ChatRoom } from "./pages/chat-room/ChatRoom";
+import { ChatRooms } from "./pages/chat-rooms/ChatRooms";
+import { Login } from "./pages/login/Login";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="login" element={<Login />} />
+          <Route path="rooms" element={<ChatRooms />} />
+          <Route path="rooms/:id" element={<ChatRoom />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );

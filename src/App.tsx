@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 
 const App = () => (
@@ -9,13 +9,13 @@ const App = () => (
        *
        * Later version will have hamburger menu
        */}
-      <div>
-        {/* Make a link later */}
-        App
-      </div>
+      <Link to="/">App</Link>
       <Link to="/login">Login</Link>
       <Link to="/rooms">rooms</Link>
     </header>
+    <main>
+      <Outlet />
+    </main>
   </div>
 );
 
