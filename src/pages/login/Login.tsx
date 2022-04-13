@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createUser } from "../../utils/create-user";
 
 export const Login = () => {
   const [usernameValue, setUsername] = useState("");
@@ -16,8 +17,10 @@ export const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // TODO: create user, disabled loading
-    navigate("/rooms");
+    createUser({ username: usernameValue }).then(() => {
+      setLoading(false);
+      navigate("/rooms");
+    });
   };
 
   const handleUsernameOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -10,5 +10,5 @@ export interface User {
   /**
    * The name of the user, setup during login
    */
-  name: string;
+  username: string;
 }

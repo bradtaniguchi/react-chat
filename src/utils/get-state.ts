@@ -5,7 +5,7 @@ import { STATE_LOCAL_STORAGE_KEY } from "./state-local-storage-key";
  * Returns the data currently saved within local-storage.
  *
  * Will manage issues with JSON parsing.
- *
+ * **Note** this is done as a promise to emulate an actual HTTP call
  */
 export const getState = async (): Promise<AppState> => {
   try {
