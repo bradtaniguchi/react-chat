@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import { ChatRoom } from "./pages/chat-room/ChatRoom";
@@ -14,8 +14,10 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="login" element={<Login />} />
-          <Route path="rooms" element={<ChatRooms />} />
           <Route path="rooms/:id" element={<ChatRoom />} />
+          <Route path="rooms" element={<ChatRooms />} />
+          <Route path="/" element={<Navigate replace to="/rooms" />} />
+          <Route path="*" element={<Navigate replace to="/rooms" />} />
         </Route>
       </Routes>
     </BrowserRouter>
