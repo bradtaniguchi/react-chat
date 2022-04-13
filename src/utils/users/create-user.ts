@@ -1,7 +1,7 @@
-import { User } from "../models/user";
+import { User } from "../../models/user";
 import { nanoid } from "nanoid";
-import { getState } from "./get-state";
-import { setState } from "./set-state";
+import { getState } from "../get-state";
+import { setState } from "../set-state";
 
 /**
  * Creates a user within the local-storage state.
