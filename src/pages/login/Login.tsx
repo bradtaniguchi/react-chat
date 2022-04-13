@@ -5,13 +5,19 @@ import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [usernameValue, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Create user and redirect?
+    setLoading(true);
+    // TODO: create user, disabled loading
+    navigate("/rooms");
   };
 
   const handleUsernameOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +48,7 @@ export const Login = () => {
             <Button
               variant="outlined"
               type="submit"
-              disabled={!Boolean(usernameValue)}
+              disabled={!Boolean(usernameValue) || loading}
             >
               Login
             </Button>
