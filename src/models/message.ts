@@ -17,6 +17,11 @@ export interface Message {
   user: User["id"];
 
   /**
+   * The actual contents of the message
+   */
+  text: string;
+
+  /**
    * When this message was created.
    */
   createdAt: Date;
